@@ -1,0 +1,166 @@
+# !-----------------------------------------------------------------------------------------------!
+#                       Welcome to the main configuration of ${project.name}
+# !-----------------------------------------------------------------------------------------------!
+#
+#    For support and documentation, please visit:
+#    - https://github.com/${author}/${project.name}/wiki
+#
+# !-----------------------------------------------------------------------------------------------!
+#
+#    1) COLOR CODES are supported with the '&' character.
+#       - For usage, see http://minecraftwiki.net/wiki/Formatting_codes
+#       - When you use them, place quotes around the message like this: "Hello &cworld."
+#       - To use HEX colors, use #123456 syntax: "Hello #123456world."
+#
+#    2) TO HIDE any message, set it to 'none'.
+#
+#    PS: Everything above applies for all files in ${project.name}/ folder.
+#
+# !-----------------------------------------------------------------------------------------------!
+
+# -------------------------------------------------------------------------------------------------
+# Metrics section - Plugin analytics via bstats.org
+# -------------------------------------------------------------------------------------------------
+Metrics:
+
+  Enabled: true
+
+# -------------------------------------------------------------------------------------------------
+# Hierarchy section - Do the plugins need to be purchased in order?
+# -------------------------------------------------------------------------------------------------
+Hierarchy:
+
+  Enabled: true
+
+# -------------------------------------------------------------------------------------------------
+# Ranks section - Give the roles their order here, doesn't really matter if hierarchy is disabled
+# -------------------------------------------------------------------------------------------------
+Ranks:
+  1: member
+  2: expert
+  3: pro
+
+# -------------------------------------------------------------------------------------------------
+# Commands section - Commands that need to run once the player is promoted
+# -------------------------------------------------------------------------------------------------
+Commands:
+  member: "player=['me purchased the rank of {group}'], console=['broadcast {player} has received the rank of {group}', 'eco give {player} 1000']"
+  expert: "player=['me purchased the rank of {group}'], console=['broadcast {player} has received the rank of {group}', 'eco give {player} 10000']"
+  pro: "player=['me purchased the rank of {group}'], console=['broadcast {player} has received the rank of {group}', 'eco give {player} 100000']"
+
+# -------------------------------------------------------------------------------------------------
+# Token section - Tokens are randomly generated codes that give players a certain rank
+# -------------------------------------------------------------------------------------------------
+Token:
+
+  Enabled: false
+
+# -------------------------------------------------------------------------------------------------
+# Apply section - If you want to require players to put in a password to get the starting group
+# -------------------------------------------------------------------------------------------------
+Apply:
+
+  Enabled: false
+
+  Password: defaultpassword
+
+  Default_Group: guest
+
+  Promotion_Group: member
+
+  Freeze_Player: false
+
+  Mute_Player_Chat: false
+
+  Hide_All_Chat: false
+
+  Kick_Wrong_Password: false
+
+# -------------------------------------------------------------------------------------------------
+# Buy section - Configure the prices of ranks here
+# -------------------------------------------------------------------------------------------------
+Buy:
+
+  Enabled: false
+
+  Prices:
+    member: 10000.00
+    expert: 100000.00
+    pro: 1000000.00
+
+# -------------------------------------------------------------------------------------------------
+# Time section - Configure the time requirements of ranks here
+# -------------------------------------------------------------------------------------------------
+Time:
+
+  Enabled: false
+
+  Count_Offline: false
+
+  Times:
+    member: 8400
+    expert: 24800
+    pro: 60000
+
+  No_Promote:
+    - Mod
+    - Admin
+    - Owner
+
+# -------------------------------------------------------------------------------------------------
+# Kill section - Configure kill requirements of ranks here
+# -------------------------------------------------------------------------------------------------
+Kill:
+
+  Enabled: false
+
+  Count_Friendly_Mobs: false
+
+  Kills:
+    member: "players=100, mobs=100"
+    expert: "players=1000, mobs=1000"
+    pro: "players=10000, mobs=10000"
+
+
+# -------------------------------------------------------------------------------------------------
+# The format used in the {timestamp} placeholder (google "Java timestamp format" for options).
+# -------------------------------------------------------------------------------------------------
+Timestamp_Format: "dd.MM.yyyy HH:mm:ss"
+
+# -------------------------------------------------------------------------------------------------
+# What commands should trigger the main plugin command group?
+#
+# * THE FIRST ALIAS IS THE MAIN LABEL, PLEASE DO NOT REMOVE IT. *
+# -------------------------------------------------------------------------------------------------
+Command_Aliases: [ promotioncore, pc ]
+
+# -------------------------------------------------------------------------------------------------
+# What language should we use for messages? If it exists, the language file will be copied 
+# to your messages/ folder where you can edit it.
+# -------------------------------------------------------------------------------------------------
+Locale: en
+
+# -------------------------------------------------------------------------------------------------
+# The prefix used in front of most chat or console messages. You can manually use it with
+# {plugin_prefix} variable anywhere.
+# -------------------------------------------------------------------------------------------------
+Prefix: "&8[&c${project.name}&8]&7 "
+
+# -------------------------------------------------------------------------------------------------
+# Time of some plugin's operations is measured. You can also use the LagCatcher class to invoke
+# this feature. We log a console message if an operation takes over the time below (milliseconds). 
+# Set to -1 to disable.
+# -------------------------------------------------------------------------------------------------
+Log_Lag_Over_Milis: 100
+
+# -------------------------------------------------------------------------------------------------
+# List of section names that will print informative messages about their features.
+# The Debugger class utilizes this key and will only print messages for sections enabled below.
+# -------------------------------------------------------------------------------------------------
+Debug: [ ]
+
+# -------------------------------------------------------------------------------------------------
+# Do not change this value, otherwise it will corrupt your plugin installation!
+# NB: Don't forget to keep this up-to-date with the getConfigVersion method in your Settings class. 
+# -------------------------------------------------------------------------------------------------
+Version: 1
